@@ -1,11 +1,9 @@
 == RPDF Template Plugin for Ruby on Rails ==
 
-A plugin to allow the inclusion of ruby code into the RPDF template files,
-and using the special object called 'pdf', this enables you to use methods 
-of the pdf-writer gem.
+A plugin to allow the inclusion of ruby code into your RPDF templates. This also enables you to use the *special* object called 'pdf' to use the methods of the pdf-writer gem.
 
-Unlike conventional templates which are used to render the results of an
-action in html, the templates will be rendered as a pdf document.
+Unlike conventional templates which are used to render the results of an action in html, these templates will be rendered as a pdf
+document.
 
 The rpdf templates end in .rpdf, for example: show.rpdf
 
