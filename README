@@ -1,0 +1,36 @@
+= RPDF Template Plugin
+
+A template plugin allowing the inclusion of ERB-enabled for RPDF template files, to integrate pdf views and pdf-writer.
+
+Requirements:
+
+gem install pdf-writer
+
+Edit your mime_types.rb initializer located under config/initializers and add the following line:
+
+Mime::Type.register "application/pdf", :pdf
+
+Example
+
+class PeopleController < ActionController
+	
+  def show
+	@record = Person.find(:id)
+	respond_to do |format|
+	  	format.pdf { :render => 'show.rpdf'}
+	end
+  end
+end
+
+Example of simple use in show.rpdf:
+
+#user data
+pdf.add_text(468, 671, @record.fullname, 10) # See for pdf-writer methods
+j=0
+@record.addresses.each do |address|
+ pdf.add_text(85, 388 - 13*j, address.location, 10) #numeric order
+ j += 1
+end
+
+==============================================
+Email: Alejandro Juarez <alexjr85@gmail.com>
