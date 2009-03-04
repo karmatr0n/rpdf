@@ -15,7 +15,7 @@ gem install pdf-writer
 Installing as git-submodule:
 
 $ cd your_rails_app
-$ git submodule add git://github.com/alexjr85/rpdf.git \    vendor/plugins/rpdf
+$ git submodule add git://github.com/alexjr85/rpdf.git vendor/plugins/rpdf
 
 Installation with the plugin rails script:
 $ cd your_rails_app
