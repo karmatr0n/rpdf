@@ -1,30 +1,37 @@
-= RPDF Template Plugin
+== RPDF Template Plugin for Ruby on Rails ==
 
-A template plugin allowing the inclusion of ERB-enabled for RPDF template files, to integrate pdf views and pdf-writer.
+A plugin to allow the inclusion of ruby code into the RPDF template files,
+and using the special object called 'pdf', this enables you to use methods 
+of the pdf-writer gem.
+
+Unlike conventional templates which are used to render the results of an
+action in html, the templates will be rendered as a pdf document.
+
+The rpdf templates end in .rpdf, for example: show.rpdf
 
 Requirements:
-
 gem install pdf-writer
 
-Edit your mime_types.rb initializer located under config/initializers and add the following line:
+== How to use ==
 
+Edit your mime_types.rb initializer located under config/initializers and 
+add the following line:
 Mime::Type.register "application/pdf", :pdf
 
-Example
+Example:
 
+Edit your controller (app/controllers/people_controller.rb)
 class PeopleController < ActionController
-	
   def show
 	@record = Person.find(:id)
 	respond_to do |format|
-	  	format.pdf { :render => 'show.rpdf'}
+	  	format.pdf { :render => 'show.rpdf' }
 	end
   end
 end
 
-Example of simple use in show.rpdf:
+Edit your view (app/views/people/show.rpdf)
 
-#user data
 pdf.add_text(468, 671, @record.fullname, 10) # See for pdf-writer methods
 j=0
 @record.addresses.each do |address|
@@ -32,5 +39,6 @@ j=0
  j += 1
 end
 
-==============================================
-Email: Alejandro Juarez <alexjr85@gmail.com>
+== Credits ==
+
+Alejandro Juarez <alexjr85@gmail.com>
