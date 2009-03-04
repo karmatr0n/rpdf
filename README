@@ -10,6 +10,17 @@ The rpdf templates end in .rpdf, for example: show.rpdf
 Requirements:
 gem install pdf-writer
 
+== How to install ==
+
+Installing as git-submodule:
+
+$ cd your_rails_app
+$ git submodule add git://github.com/alexjr85/rpdf.git \    vendor/plugins/rpdf
+
+Installation with the plugin rails script:
+$ cd your_rails_app
+$ ./script/plugin install git://github.com/alexjr85/rpdf.git
+
 == How to use ==
 
 Edit your mime_types.rb initializer located under config/initializers and 
